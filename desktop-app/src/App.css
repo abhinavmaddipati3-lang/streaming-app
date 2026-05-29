@@ -1,0 +1,162 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #0f172a;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* TOPBAR */
+
+.topbar {
+  height: 70px;
+  background: #111827;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  border-bottom: 1px solid #1e293b;
+}
+
+.top-controls {
+  display: flex;
+  gap: 15px;
+}
+
+.stream-btn {
+  background: red;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.record-btn {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* MAIN */
+
+.main-layout {
+  flex: 1;
+  display: flex;
+}
+
+/* SIDEBAR */
+
+.sidebar {
+  width: 260px;
+  background: #111827;
+  padding: 20px;
+  border-right: 1px solid #1e293b;
+}
+
+.sidebar h2 {
+  margin-bottom: 15px;
+}
+
+.scene,
+.source {
+  background: #1e293b;
+  padding: 14px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.source-btn {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 8px;
+
+  background: #334155;
+  color: white;
+
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+.scene.active {
+  background: #2563eb;
+}
+
+.sources-title {
+  margin-top: 30px;
+}
+
+/* PREVIEW */
+
+.preview-area {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #020617;
+}
+
+.preview-window {
+  width: 80%;
+  height: 80%;
+  background: black;
+  border: 3px solid #334155;
+  border-radius: 12px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 40px;
+  color: #64748b;
+}
+
+/* RIGHT PANEL */
+
+.right-panel {
+  width: 280px;
+  background: #111827;
+  padding: 20px;
+  border-left: 1px solid #1e293b;
+}
+
+.right-panel h2 {
+  margin-bottom: 20px;
+}
+
+.mixer {
+  margin-bottom: 25px;
+}
+
+.mixer label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.mixer input {
+  width: 100%;
+}button {
+  position: relative;
+  z-index: 9999;
+  cursor: pointer;
+}
+
+.preview-window {
+  pointer-events: none;
+}
