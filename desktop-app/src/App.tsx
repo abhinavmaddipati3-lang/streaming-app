@@ -160,23 +160,39 @@ const selectSource = async (sourceId: string) => {
 
           <div className="preview-window">
 
-            <video
-              id="preview-video"
-              autoPlay
-              muted
-              playsInline
-              style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover'
-              }}
-            />
+  {activeScene === 'camera' && (
+    <video
+      id="preview-video"
+      autoPlay
+      muted
+      playsInline
+      style={{
+        width: '100%',
+        height: '100%',
+        objectFit: 'cover'
+      }}
+    />
+  )}
 
-          </div>
+  {activeScene === 'lyrics' && (
+    <div className="lyrics-scene">
+      <h1>Amazing Grace</h1>
+      <p>How sweet the sound</p>
+    </div>
+  )}
 
-        </div>
+  {activeScene === 'announcement' && (
+    <div className="announcement-scene">
+      <h1>Announcement</h1>
+      <p>Service will begin in 10 minutes</p>
+    </div>
+  )}
 
-        <div className="mixer">
+</div>
+
+</div>
+
+<div className="mixer">
 
           <h2>Audio Mixer</h2>
 
@@ -197,8 +213,7 @@ const selectSource = async (sourceId: string) => {
 
         </div>
 
-      </div>
-
-    </div>
-  )
+ </div>
+</div>
+)
 }
