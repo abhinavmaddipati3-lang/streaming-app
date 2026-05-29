@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react'
 export default function App() {
   const [sources, setSources] = useState<any[]>([])
   const [selectedSource, setSelectedSource] = useState<string | null>(null)
+  const [activeScene, setActiveScene] = useState('camera')
 
   useEffect(() => {
     loadSources()
@@ -106,17 +107,26 @@ const selectSource = async (sourceId: string) => {
 
           <h2>Scenes</h2>
 
-          <div className="scene active">
-            🎥 Camera 1
-          </div>
+          <div
+  className={activeScene === 'camera' ? 'scene active' : 'scene'}
+  onClick={() => setActiveScene('camera')}
+>
+  📹 Camera 1
+</div>
 
-          <div className="scene">
-            🎵 Lyrics
-          </div>
+          <div
+  className={activeScene === 'lyrics' ? 'scene active' : 'scene'}
+  onClick={() => setActiveScene('lyrics')}
+>
+  🎵 Lyrics
+</div>
 
-          <div className="scene">
-            📢 Announcement
-          </div>
+          <div
+  className={activeScene === 'announcement' ? 'scene active' : 'scene'}
+  onClick={() => setActiveScene('announcement')}
+>
+  📢 Announcement
+</div>
 
           <h2>Sources</h2>
 
