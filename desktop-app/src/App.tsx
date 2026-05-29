@@ -3,10 +3,12 @@ import './App.css'
 import { useState, useEffect } from 'react'
 
 export default function App() {
-const [sources, setSources] = useState<any[]>([])
-useEffect(() => {
-  loadSources()
-}, [])
+  const [sources, setSources] = useState<any[]>([])
+  const [selectedSource, setSelectedSource] = useState<string | null>(null)
+
+  useEffect(() => {
+    loadSources()
+  }, [])
 const loadSources = async () => {
   const result = await require('electron')
     .ipcRenderer
@@ -23,7 +25,9 @@ const loadSources = async () => {
 )
 }
 const selectSource = async (sourceId: string) => {
-  try {
+  setSelectedSource(sourceId)
+
+    try {
     const stream = await (navigator.mediaDevices as any).getUserMedia({
   audio: false,
   video: {
@@ -122,7 +126,11 @@ const selectSource = async (sourceId: string) => {
 {sources.map((source) => (
   <button
   key={source.id}
-  className="source-btn"
+  className={
+    selectedSource === source.id
+      ? "source-btn active"
+      : "source-btn"
+  }
   onClick={() => selectSource(source.id)}
 >
   {source.name}
